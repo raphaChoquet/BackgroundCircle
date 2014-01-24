@@ -74,7 +74,7 @@
 					circle.d = circle.d * scale;
 					var rdmColor = color[Math.floor(Math.random()*4)]; // tire une couleur des 4 couleurs aux hasard
 					var rdmOpacity = (Math.floor(Math.random()*5)+4) / 10; //tire un nombre entre 0.4 et 0.8
-					var rdmInterval = (Math.floor(Math.random()*5)+1) * 1000; //tire un nombre entre 1000ms et 10000ms
+					var rdmInterval = Math.ceil(Math.random()*5000); //tire un nombre entre 1000ms et 10000ms
 
 					//On crée le cercle
 					var $circle = $('<div>', {
@@ -85,8 +85,8 @@
 							top: circle.y + '%',
 							width: circle.d + 'px',
 							height: circle.d + 'px',
-							marginLeft: '-' + (circle.d / 2) + 'px',
-							marginTop: '-' + (circle.d / 2) + 'px',
+							marginLeft: (-circle.d / 2) + 'px',
+							marginTop: (-circle.d / 2) + 'px',
 							backgroundColor: rdmColor,
 							boxShadow: '0px 0px 100px 100px ' + rdmColor,
 							opacity: rdmOpacity
@@ -100,8 +100,7 @@
 			function changeCircle($circle) {
 				var rdmColor = color[Math.floor(Math.random()*4)]; // tire une couleur des 4 couleurs aux hasard
 				var rdmOpacity = (Math.floor(Math.random()*5)+4) / 10; //tire un nombre entre 0.4 et 0.8
-				var rdmInterval = (Math.floor(Math.random()*10)+1) * 1000; //tire un nombre entre 1000ms et 10000ms
-				
+
 				//On redéfinie la couleur et l'opacité du cercle
 				$circle.css({
 					backgroundColor: rdmColor,
