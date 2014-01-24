@@ -38,18 +38,18 @@
 	<script>
 		$(function(){
 			var circles = [
-				{x: 48, y: 0, d: 300},
-				{x: 40, y: 30, d: 300},
-				{x: 70, y: 50, d: 380},
-				{x: 40, y: 100, d: 600},
-				{x: 100, y: 20, d: 500},
-				{x: 70, y: 100, d: 200},
-				{x: 90, y: 0, d: 300},
-				{x: 0, y: 0, d: 700},
-				{x: 2, y: 100, d: 200},
-				{x: 90, y: 100, d: 300},
-				{x: 69, y: 8, d: 150},
-				{x: 5, y: 75, d: 150}
+				{x: 48, y: 0, d: 200},
+				{x: 40, y: 30, d: 200},
+				{x: 70, y: 50, d: 280},
+				{x: 40, y: 100, d: 500},
+				{x: 100, y: 20, d: 400},
+				{x: 70, y: 100, d: 100},
+				{x: 90, y: 0, d: 200},
+				{x: 0, y: 0, d: 600},
+				{x: 2, y: 100, d: 100},
+				{x: 90, y: 100, d: 200},
+				{x: 69, y: 8, d: 50},
+				{x: 5, y: 75, d: 50}
 			];
 
 			var color = ['#9C3F7F', '#FF9900', '#FF4833', '#FFC843'];
@@ -69,14 +69,13 @@
 				lanceAnim();
 			}
 
-
 			function lanceAnim() {
 				$.each(circles, function(key, circle) {
 					circle.d = circle.d * scale;
 					var rdmColor = color[Math.floor(Math.random()*4)]; // tire une couleur des 4 couleurs aux hasard
 					var rdmOpacity = (Math.floor(Math.random()*5)+4) / 10; //tire un nombre entre 0.4 et 0.8
-					var rdmInterval = (Math.floor(Math.random()*10)+1) * 1000; //tire un nombre entre 1000ms et 10000ms
-					console.log(rdmOpacity);
+					var rdmInterval = (Math.floor(Math.random()*5)+1) * 1000; //tire un nombre entre 1000ms et 10000ms
+
 					//On crée le cercle
 					var $circle = $('<div>', {
 						id: 'circle-' + key,
@@ -89,7 +88,7 @@
 							marginLeft: '-' + (circle.d / 2) + 'px',
 							marginTop: '-' + (circle.d / 2) + 'px',
 							backgroundColor: rdmColor,
-							boxShadow: '0px 0px 10px 20px ' + rdmColor,
+							boxShadow: '0px 0px 100px 100px ' + rdmColor,
 							opacity: rdmOpacity
 						}
 					}).appendTo($bgAnim);
@@ -106,10 +105,10 @@
 				//On redéfinie la couleur et l'opacité du cercle
 				$circle.css({
 					backgroundColor: rdmColor,
-					boxShadow: '0px 0px 10px 20px ' + rdmColor,
+					boxShadow: '0px 0px 100px 100px ' + rdmColor,
 					opacity: rdmOpacity
 				});
-				window.setTimeout(function(){changeCircle($circle);}, rdmInterval + 1000);
+				window.setTimeout(function(){changeCircle($circle);}, 2000);
 			}
 		});
 	</script>
