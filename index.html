@@ -89,11 +89,12 @@
 							marginLeft: '-' + (circle.d / 2) + 'px',
 							marginTop: '-' + (circle.d / 2) + 'px',
 							backgroundColor: rdmColor,
+							boxShadow: '0px 0px 10px 20px ' + rdmColor,
 							opacity: rdmOpacity
 						}
 					}).appendTo($bgAnim);
 
-					window.setTimeout(function(){changeCircle($circle);}, rdmInterval);
+					// window.setTimeout(function(){changeCircle($circle);}, rdmInterval);
 				});
 			}
 
@@ -105,6 +106,7 @@
 				//On redéfinie la couleur et l'opacité du cercle
 				$circle.css({
 					backgroundColor: rdmColor,
+					boxShadow: '0px 0px 10px 20px ' + rdmColor,
 					opacity: rdmOpacity
 				});
 				window.setTimeout(function(){changeCircle($circle);}, rdmInterval + 1000);
